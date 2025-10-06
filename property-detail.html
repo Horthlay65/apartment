@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Apartment with City View - RealEstate Cambodia</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* Reset and Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden;
+        background-color: #f9f9f9;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      /* New Color Scheme - Golden and Red */
+      /* Color Scheme */
+      :root {
+        --primary-gold: #d4af37;
+        --primary-gold-light: #ffd700;
+        --primary-gold-dark: #b8860b;
+        --primary-red: #e74c3c;
+        --primary-red-dark: #c0392b;
+        --dark-bg: #2c3e50;
+        --light-bg: #f9f9f9;
+        --white: #ffffff;
+        --text-dark: #333333;
+        --text-light: #7f8c8d;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: var(--primary-red);
+        color: var(--white);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: all 0.6s ease;
+        z-index: -1;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn:hover {
+        background-color: var(--primary-red-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+      }
+
+      .btn-secondary {
+        background-color: var(--primary-gold);
+        box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--primary-gold-dark);
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--primary-gold);
+        color: var(--primary-gold);
+        box-shadow: none;
+      }
+
+      .btn-outline:hover {
+        background-color: var(--primary-gold);
+        color: var(--white);
+        box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+      }
+
+      .section {
+        padding: 80px 0;
+        position: relative;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 2.2rem;
+        color: var(--text-dark);
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          var(--primary-red),
+          var(--primary-gold)
+        );
+      }
+
+      .section-title span {
+        color: var(--primary-gold);
+      }
+
+      /* Animation Keyframes */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -100% 0;
+        }
+        100% {
+          background-position: 100% 0;
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+
+      /* Header Styles */
+      /* Header Styles */
+      header {
+        background-color: var(--white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      header.scrolled {
+        padding: 5px 0;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .logo i {
+        color: var(--primary-red);
+        margin-right: 10px;
+        font-size: 2rem;
+      }
+
+      .logo span {
+        color: var(--primary-gold);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .nav-item {
+        font-weight: 500;
+        position: relative;
+        padding: 8px 12px;
+      }
+
+      .nav-item::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          var(--primary-red),
+          var(--primary-gold)
+        );
+        transition: width 0.3s ease;
+      }
+
+      .nav-item:hover::after,
+      .nav-item.active::after {
+        width: 100%;
+      }
+
+      .nav-item:hover,
+      .nav-item.active {
+        color: var(--primary-gold);
+      }
+
+      /* Auth Buttons */
+      .auth-buttons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-login {
+        background-color: transparent;
+        color: var(--primary-red);
+        border: 2px solid var(--primary-red);
+        padding: 8px 20px;
+        font-size: 0.9rem;
+      }
+
+      .btn-login:hover {
+        background-color: var(--primary-red);
+        color: var(--white);
+      }
+
+      .btn-register {
+        background-color: var(--primary-gold);
+        color: var(--white);
+        border: 2px solid var(--primary-gold);
+        padding: 8px 20px;
+        font-size: 0.9rem;
+      }
+
+      .btn-register:hover {
+        background-color: var(--primary-gold-dark);
+        border-color: var(--primary-gold-dark);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1001;
+        color: var(--primary-gold);
+      }
+
+      /* Page Header */
+      .page-header {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("/placeholder.svg?height=400&width=1200") center/cover no-repeat;
+        color: var(--white);
+        text-align: center;
+        padding: 60px 0;
+        position: relative;
+      }
+
+      .page-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          rgba(231, 76, 60, 0.3),
+          rgba(212, 175, 55, 0.3)
+        );
+        z-index: 1;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 2;
+      }
+
+      .breadcrumbs {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .breadcrumbs a {
+        color: rgba(255, 255, 255, 0.8);
+        transition: color 0.3s;
+      }
+
+      .breadcrumbs a:hover {
+        color: var(--primary-gold);
+      }
+
+      .breadcrumbs .separator {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .breadcrumbs .current {
+        color: var(--primary-gold);
+      }
+
+      /* Property Detail Styles */
+      .property-detail-section {
+        padding: 60px 0;
+      }
+
+      .property-detail-container {
+        background-color: var(--white);
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        margin-top: -80px;
+        position: relative;
+        z-index: 10;
+      }
+
+      /* Property Gallery */
+      .property-gallery {
+        position: relative;
+        height: 500px;
+        overflow: hidden;
+      }
+
+      .gallery-main {
+        height: 100%;
+        position: relative;
+      }
+
+      .gallery-main-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+
+      .gallery-thumbs {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 2;
+      }
+
+      .gallery-thumb {
+        width: 80px;
+        height: 60px;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 3px solid rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+        opacity: 0.7;
+      }
+
+      .gallery-thumb:hover,
+      .gallery-thumb.active {
+        border-color: var(--primary-gold);
+        opacity: 1;
+      }
+
+      .gallery-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: var(--text-dark);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 2;
+      }
+
+      .gallery-nav:hover {
+        background-color: var(--primary-gold);
+        color: var(--white);
+      }
+
+      .gallery-prev {
+        left: 20px;
+      }
+
+      .gallery-next {
+        right: 20px;
+      }
+
+      .gallery-counter {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: var(--white);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        z-index: 2;
+      }
+
+      /* Property Header */
+      .property-header {
+        padding: 30px;
+        border-bottom: 1px solid var(--border-light);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .property-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: var(--text-dark);
+      }
+
+      .property-location {
+        display: flex;
+        align-items: center;
+        color: var(--text-light);
+        margin-bottom: 15px;
+      }
+
+      .property-location i {
+        margin-right: 8px;
+        color: var(--primary-red);
+      }
+
+      .property-price-container {
+        background: linear-gradient(
+          to right,
+          var(--primary-red),
+          var(--primary-gold)
+        );
+        color: var(--white);
+        padding: 15px 25px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .property-label {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+      }
+
+      .property-price {
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+
+      .property-tags {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+      }
+
+      .property-tag {
+        background-color: var(--primary-red);
+        color: var(--white);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .property-tag.featured {
+        background-color: var(--primary-gold);
+      }
+
+      /* Property Content */
+      .property-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
+        padding: 30px;
+      }
+
+      .property-main {
+        border-right: 1px solid var(--border-light);
+        padding-right: 30px;
+      }
+
+      .property-section {
+        margin-bottom: 40px;
+      }
+
+      .property-section-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border-light);
+        color: var(--text-dark);
+        position: relative;
+      }
+
+      .property-section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          var(--primary-red),
+          var(--primary-gold)
+        );
+      }
+
+      .property-description {
+        line-height: 1.8;
+        color: var(--text-dark);
+        margin-bottom: 20px;
+      }
+
+      .property-features-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .property-feature-item {
+        display: flex;
+        align-items: center;
+      }
+
+      .property-feature-item i {
+        margin-right: 10px;
+        color: var(--primary-gold);
+        font-size: 1.2rem;
+        min-width: 25px;
+      }
+
+      .property-details-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .property-detail-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px dashed var(--border-light);
+      }
+
+      .detail-label {
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .detail-value {
+        color: var(--text-light);
+      }
+
+      /* Property Sidebar */
+      .property-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .sidebar-section {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .sidebar-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .sidebar-description {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        background: #fff;
+        border-radius: 6px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: background 0.3s;
+      }
+
+      .social-link:hover {
+        background: #e9ecef;
+      }
+
+      .social-link i {
+        margin-right: 10px;
+        font-size: 16px;
+      }
+
+      .facebook {
+        color: #1877f2;
+      }
+      .wechat {
+        color: #07c160;
+      }
+      .telegram {
+        color: #0088cc;
+      }
+      .agent-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .agent-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--primary-gold);
+        margin-bottom: 15px;
+      }
+
+      .agent-name {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        color: var(--text-dark);
+      }
+
+      .agent-title {
+        color: var(--text-light);
+        margin-bottom: 15px;
+      }
+
+      .agent-contact {
+        width: 100%;
+        margin-top: 15px;
+      }
+
+      .agent-contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .agent-contact-item i {
+        margin-right: 10px;
+        color: var(--primary-gold);
+        min-width: 20px;
+      }
+
+      .contact-form-group {
+        margin-bottom: 15px;
+      }
+
+      .contact-form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .contact-form-control:focus {
+        border-color: var(--primary-gold);
+        box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        outline: none;
+      }
+
+      .contact-form-btn {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(
+          to right,
+          var(--primary-red),
+          var(--primary-gold)
+        );
+        color: var(--white);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .contact-form-btn:hover {
+        background: linear-gradient(
+          to right,
+          var(--primary-gold),
+          var(--primary-red)
+        );
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Property Map */
+      .property-map {
+        height: 300px;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border: 5px solid var(--white);
+      }
+
+      .property-map iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* Similar Properties */
+      .similar-properties {
+        padding: 60px 0;
+        background-color: var(--light-bg);
+      }
+
+      .property-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
+      }
+
+      .property-card {
+        background-color: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        position: relative;
+        top: 0;
+        border: 1px solid rgba(212, 175, 55, 0.1);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 0.6s ease-out forwards;
+      }
+
+      .property-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .property-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .property-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      .property-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        border-color: var(--primary-gold);
+      }
+
+      .property-img {
+        height: 220px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .property-img::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          transparent 50%,
+          rgba(0, 0, 0, 0.7)
+        );
+        transition: opacity 0.3s ease;
+      }
+
+      .property-card:hover .property-img::after {
+        opacity: 0.8;
+      }
+
+      .property-card-tag {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background-color: var(--primary-red);
+        color: var(--white);
+        padding: 8px 15px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 2;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .property-card-price {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: var(--primary-gold);
+        padding: 8px 15px;
+        border-radius: 4px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        z-index: 2;
+        transition: all 0.3s ease;
+      }
+
+      .property-card:hover .property-card-price {
+        background-color: var(--primary-gold);
+        color: var(--white);
+        transform: translateY(-5px);
+      }
+
+      .property-card-content {
+        padding: 25px;
+      }
+
+      .property-card-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+      }
+
+      .property-card:hover .property-card-title {
+        color: var(--primary-gold);
+      }
+
+      .property-card-location {
+        color: var(--text-light);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .property-card-location i {
+        margin-right: 8px;
+        color: var(--primary-red);
+      }
+
+      .property-card-features {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+      }
+
+      .property-card-feature {
+        display: flex;
+        align-items: center;
+        font-size: 0.95rem;
+      }
+
+      .property-card-feature i {
+        margin-right: 5px;
+        color: var(--primary-gold);
+      }
+
+      /* Virtual Tour */
+      .virtual-tour {
+        margin-top: 30px;
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .virtual-tour iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* Image Gallery Popup */
+      .view-all-images-btn {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: linear-gradient(
+          to right,
+          var(--primary-red),
+          var(--primary-gold)
+        );
+        color: var(--white);
+        padding: 12px 24px;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+      }
+
+      .view-all-images-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        animation: none;
+      }
+
+      .view-all-images-btn i {
+        margin-right: 8px;
+      }
+
+      /* Media queries for the view all images button */
+      @media (max-width: 768px) {
+        .view-all-images-btn {
+          bottom: 15px;
+          right: 15px;
+          padding: 8px 15px;
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .view-all-images-btn {
+          bottom: 10px;
+          right: 10px;
+          padding: 6px 12px;
+          font-size: 0.8rem;
+          width: auto;
+        }
+      }
+
+      .gallery-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 2000;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .gallery-popup.active {
+        display: flex;
+        opacity: 1;
+        flex-direction: column;
+      }
+
+      .popup-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        color: var(--white);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .popup-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .popup-close {
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--white);
+        transition: color 0.3s ease;
+      }
+
+      .popup-close:hover {
+        color: var(--primary-gold);
+      }
+
+      .popup-content {
+        flex: 1;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .popup-main-image {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .popup-main-image img {
+        max-width: 90%;
+        max-height: 80vh;
+        object-fit: contain;
+      }
+
+      .popup-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: var(--white);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 2;
+      }
+
+      .popup-nav:hover {
+        background-color: var(--primary-gold);
+      }
+
+      .popup-prev {
+        left: 20px;
+      }
+
+      .popup-next {
+        right: 20px;
+      }
+
+      .popup-counter {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        color: var(--white);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        z-index: 2;
+      }
+
+      .popup-thumbnails {
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+        overflow-x: auto;
+      }
+
+      .popup-thumb {
+        width: 80px;
+        height: 60px;
+        border-radius: 4px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+        opacity: 0.6;
+      }
+
+      .popup-thumb:hover,
+      .popup-thumb.active {
+        border-color: var(--primary-gold);
+        opacity: 1;
+      }
+
+      @media (max-width: 768px) {
+        .popup-thumbnails {
+          padding: 10px;
+        }
+
+        .popup-thumb {
+          width: 60px;
+          height: 45px;
+        }
+
+        .popup-nav {
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+      }
+
+      /* Improved mobile gallery popup styles */
+      @media (max-width: 768px) {
+        .popup-main-image img {
+          max-width: 95%;
+          max-height: 70vh;
+        }
+
+        .popup-header {
+          padding: 10px 15px;
+        }
+
+        .popup-title {
+          font-size: 1rem;
+        }
+
+        .popup-nav {
+          width: 40px;
+          height: 40px;
+        }
+
+        .popup-prev {
+          left: 10px;
+        }
+
+        .popup-next {
+          right: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .popup-main-image img {
+          max-width: 100%;
+          max-height: 60vh;
+        }
+
+        .popup-nav {
+          width: 35px;
+          height: 35px;
+          font-size: 0.9rem;
+        }
+
+        .popup-thumbnails {
+          padding: 8px;
+          gap: 6px;
+        }
+
+        .popup-thumb {
+          width: 50px;
+          height: 40px;
+        }
+      }
+
+      /* Mobile Menu */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background-color: var(--white);
+        z-index: 1000;
+        padding: 80px 30px 30px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        overflow-y: auto;
+        border-left: 3px solid var(--primary-gold);
+      }
+
+      .mobile-menu.active {
+        right: 0;
+      }
+
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .mobile-menu-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--primary-gold);
+      }
+
+      .mobile-nav-item {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .mobile-nav-item a {
+        font-size: 1.1rem;
+        font-weight: 500;
+        display: block;
+        transition: color 0.3s;
+        color: var(--text-dark);
+      }
+
+      .mobile-nav-item a:hover {
+        color: var(--primary-gold);
+      }
+
+      .auth-mobile {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .auth-mobile .btn {
+        text-align: center;
+        padding: 10px 20px;
+      }
+
+      .mobile-contact {
+        margin-top: 30px;
+      }
+
+      .mobile-contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        color: var(--text-dark);
+      }
+
+      .mobile-contact-item i {
+        margin-right: 10px;
+        color: var(--primary-gold);
+      }
+
+      /* Telegram Sticky Icon */
+      .telegram-sticky {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        z-index: 999;
+      }
+
+      .telegram-btn {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #0088cc, #0099ff);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.8rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        animation: bounce 2s infinite;
+      }
+
+      .telegram-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        animation: none;
+      }
+
+      .telegram-tooltip {
+        position: absolute;
+        left: 70px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--white);
+        color: var(--text-dark);
+        padding: 8px 15px;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .telegram-btn:hover + .telegram-tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+          to right,
+          var(--primary-red),
+          var(--primary-gold)
+        );
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        background: linear-gradient(
+          to right,
+          var(--primary-gold),
+          var(--primary-red)
+        );
+        transform: translateY(-5px);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 1024px) {
+        .property-content {
+          grid-template-columns: 1fr;
+        }
+
+        .property-main {
+          border-right: none;
+          padding-right: 0;
+          border-bottom: 1px solid var(--border-light);
+          padding-bottom: 30px;
+        }
+
+        .property-gallery {
+          height: 400px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-menu {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .property-header {
+          flex-direction: column;
+        }
+
+        .property-price-container {
+          width: 100%;
+        }
+
+        .property-features-list,
+        .property-details-list {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-thumbs {
+          display: none;
+        }
+
+        .property-gallery {
+          height: 350px;
+        }
+
+        .telegram-sticky {
+          bottom: 20px;
+          left: 20px;
+        }
+
+        .telegram-btn {
+          width: 50px;
+          height: 50px;
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .property-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .property-gallery {
+          height: 300px;
+        }
+
+        .gallery-nav {
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+
+        .back-to-top {
+          bottom: 20px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+      }
+
+      /* Enhanced Gallery Popup Styles */
+      .gallery-popup {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .gallery-popup.active {
+        opacity: 1;
+        visibility: visible;
+        display: flex;
+      }
+
+      .popup-main-image {
+        transition: transform 0.3s ease;
+      }
+
+      .popup-main-image img {
+        transition: all 0.3s ease;
+        max-width: 90%;
+        max-height: 80vh;
+        object-fit: contain;
+      }
+
+      .popup-main-image.zoomed img {
+        max-width: 150%;
+        max-height: 150vh;
+        cursor: zoom-out;
+      }
+
+      .popup-main-image:not(.zoomed) img {
+        cursor: zoom-in;
+      }
+
+      /* Loading indicator for images */
+      .image-loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        border: 5px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: var(--primary-gold);
+        animation: spin 1s ease-in-out infinite;
+        display: none;
+      }
+
+      @keyframes spin {
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      /* External image input form */
+      .external-image-form {
+        display: flex;
+        padding: 10px 15px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .external-image-input {
+        flex: 1;
+        padding: 8px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border-radius: 4px 0 0 4px;
+      }
+
+      .external-image-btn {
+        padding: 8px 15px;
+        background: linear-gradient(
+          to right,
+          var(--primary-red),
+          var(--primary-gold)
+        );
+        color: white;
+        border: none;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .external-image-btn:hover {
+        background: linear-gradient(
+          to right,
+          var(--primary-gold),
+          var(--primary-red)
+        );
+      }
+
+      @media (max-width: 768px) {
+        .external-image-form {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .external-image-input,
+        .external-image-btn {
+          width: 100%;
+          border-radius: 4px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="container header-container">
+        <div class="logo">
+          <img src="/images/logo/ERA-Gold1.png" width="50" height="50" alt="" />
+          ERA<span>CAMBODIA</span>
+        </div>
+        <nav>
+          <ul class="nav-menu">
+            <li>
+              <a href="index.html" class="nav-item">Home</a>
+            </li>
+            <li>
+              <a href="properties.html" class="nav-item active">Properties</a>
+            </li>
+            <li><a href="index.html#about" class="nav-item">About Us</a></li>
+            <li><a href="index.html#contact" class="nav-item">Contact</a></li>
+            <li class="auth-buttons">
+              <a href="auth/login.html" class="btn btn-login">Login</a>
+              <a href="auth/register.html" class="btn btn-register">Register</a>
+            </li>
+          </ul>
+          <div class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-close" id="mobile-menu-close">
+        <i class="fas fa-times"></i>
+      </div>
+      <ul>
+        <li class="mobile-nav-item"><a href="index.html">Home</a></li>
+        <li class="mobile-nav-item">
+          <a href="properties.html">Properties</a>
+        </li>
+        <li class="mobile-nav-item"><a href="#about">About Us</a></li>
+        <li class="mobile-nav-item"><a href="#contact">Contact</a></li>
+        <li class="mobile-nav-item auth-mobile">
+          <a href="auth/login.html" class="btn btn-login">Login</a>
+          <a href="auth/register.html" class="btn btn-register">Register</a>
+        </li>
+      </ul>
+      <div class="mobile-contact">
+        <div class="mobile-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>+855 23 123 456</span>
+        </div>
+        <div class="mobile-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>info@realestate.com.kh</span>
+        </div>
+        <div class="mobile-contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>123 Norodom Blvd, Phnom Penh</span>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1 class="page-title">Modern Apartment with City View</h1>
+        <div class="breadcrumbs">
+          <a href="index.html">Home</a>
+          <span class="separator">/</span>
+          <a href="properties.html">Properties</a>
+          <span class="separator">/</span>
+          <span class="current">Modern Apartment with City View</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Property Detail Section -->
+    <section class="property-detail-section">
+      <div class="container">
+        <div class="property-detail-container">
+          <!-- Property Gallery -->
+          <div class="property-gallery">
+            <div class="gallery-main">
+              <img
+                src="/images/apartment.jpg"
+                alt="Modern Apartment"
+                class="gallery-main-img"
+                id="main-image"
+              />
+            </div>
+            <div class="gallery-thumbs">
+              <img
+                src="/images/apartment.jpg"
+                alt="Thumbnail 1"
+                class="gallery-thumb active"
+                onclick="changeImage('/images/apartment.jpg', 0)"
+              />
+              <img
+                src="/images/apartment.jpg"
+                alt="Thumbnail 2"
+                class="gallery-thumb"
+                onclick="changeImage('/images/apartment.jpg', 1)"
+              />
+              <img
+                src="/images/apartment.jpg"
+                alt="Thumbnail 3"
+                class="gallery-thumb"
+                onclick="changeImage('/images/apartment.jpg', 2)"
+              />
+              <img
+                src="/images/apartment.jpg"
+                alt="Thumbnail 4"
+                class="gallery-thumb"
+                onclick="changeImage('/images/apartment.jpg', 3)"
+              />
+              <img
+                src="/images/apartment.jpg"
+                alt="Thumbnail 5"
+                class="gallery-thumb"
+                onclick="changeImage('/images/apartment.jpg', 4)"
+              />
+            </div>
+            <div class="gallery-nav gallery-prev" onclick="prevImage()">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="gallery-nav gallery-next" onclick="nextImage()">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="gallery-counter">
+              <span id="current-image">1</span> /
+              <span id="total-images">5</span>
+            </div>
+            <div class="view-all-images-btn" onclick="openGalleryPopup()">
+              <i class="fas fa-images"></i> View All Images
+            </div>
+          </div>
+
+          <!-- Property Header -->
+          <div class="property-header">
+            <div class="property-header-left">
+              <h1 class="property-title">Modern Apartment with City View</h1>
+              <p class="property-location">
+                <i class="fas fa-map-marker-alt"></i> BKK1, Phnom Penh, Cambodia
+              </p>
+              <div class="property-tags">
+                <span class="property-tag">For Sale</span>
+                <span class="property-tag featured">Featured</span>
+                <span class="property-tag">New</span>
+              </div>
+            </div>
+            <div class="property-price-container">
+              <div class="property-label">Price</div>
+              <div class="property-price">$120,000</div>
+            </div>
+          </div>
+
+          <!-- Property Content -->
+          <div class="property-content">
+            <div class="property-main">
+              <!-- Description Section -->
+              <div class="property-section">
+                <h2 class="property-section-title">Description</h2>
+                <div class="property-description">
+                  <p>
+                    This stunning modern apartment offers breathtaking city
+                    views from its prime location in BKK1, one of Phnom Penh's
+                    most desirable neighborhoods. Recently renovated with
+                    high-quality materials and contemporary design, this
+                    property combines comfort, style, and convenience.
+                  </p>
+                  <p>
+                    The open-concept living area features floor-to-ceiling
+                    windows that flood the space with natural light and showcase
+                    panoramic views of the city skyline. The kitchen is equipped
+                    with premium stainless steel appliances, granite
+                    countertops, and ample storage space.
+                  </p>
+                  <p>
+                    Both bedrooms are generously sized with built-in wardrobes,
+                    and the master bedroom includes an ensuite bathroom with a
+                    rainfall shower. The apartment also features a balcony
+                    perfect for enjoying morning coffee or evening relaxation
+                    while taking in the spectacular views.
+                  </p>
+                  <p>
+                    Located in a secure building with 24-hour security,
+                    residents enjoy access to a range of amenities including a
+                    swimming pool, fitness center, and rooftop garden. The
+                    property is within walking distance to international
+                    restaurants, cafes, shopping centers, and schools.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Property Features -->
+              <div class="property-section">
+                <h2 class="property-section-title">Property Features</h2>
+                <div class="property-features-list">
+                  <div class="property-feature-item">
+                    <i class="fas fa-bed"></i>
+                    <span>2 Bedrooms</span>
+                  </div>
+                  <div class="property-feature-item">
+                    <i class="fas fa-bath"></i>
+                    <span>2 Bathrooms</span>
+                  </div>
+                  <div class="property-feature-item">
+                    <i class="fas fa-vector-square"></i>
+                    <span>120 m² Living Area</span>
+                  </div>
+                  <div class="property-feature-item">
+                    <i class="fas fa-car"></i>
+                    <span>1 Parking Space</span>
+                  </div>
+                  <div class="property-feature-item">
+                    <i class="fas fa-building"></i>
+                    <span>5th Floor</span>
+                  </div>
+                  <div class="property-feature-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Built in 2018</span>
+                  </div>
+                  <div class="property-feature-item">
+                    <i class="fas fa-wind"></i>
+                    <span>Air Conditioning</span>
+                  </div>
+                  <div class="property-feature-item">
+                    <i class="fas fa-wifi"></i>
+                    <span>High-Speed Internet</span>
+                  </div>
+                  <div class="property-feature-item">
+                    <i class="fas fa-swimming-pool"></i>
+                    <span>Swimming Pool</span>
+                  </div>
+                  <div class="property-feature-item">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Fitness Center</span>
+                  </div>
+                  <div class="property-feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>24/7 Security</span>
+                  </div>
+                  <div class="property-feature-item">
+                    <i class="fas fa-elevator"></i>
+                    <span>Elevator</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Property Details -->
+              <div class="property-section">
+                <h2 class="property-section-title">Property Details</h2>
+                <div class="property-details-list">
+                  <div class="property-detail-item">
+                    <span class="detail-label">Property ID:</span>
+                    <span class="detail-value">AP-12345</span>
+                  </div>
+                  <div class="property-detail-item">
+                    <span class="detail-label">Property Type:</span>
+                    <span class="detail-value">Apartment</span>
+                  </div>
+                  <div class="property-detail-item">
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value">For Sale</span>
+                  </div>
+                  <div class="property-detail-item">
+                    <span class="detail-label">Price:</span>
+                    <span class="detail-value">$120,000</span>
+                  </div>
+                  <div class="property-detail-item">
+                    <span class="detail-label">Area:</span>
+                    <span class="detail-value">120 m²</span>
+                  </div>
+                  <div class="property-detail-item">
+                    <span class="detail-label">Bedrooms:</span>
+                    <span class="detail-value">2</span>
+                  </div>
+                  <div class="property-detail-item">
+                    <span class="detail-label">Bathrooms:</span>
+                    <span class="detail-value">2</span>
+                  </div>
+                  <div class="property-detail-item">
+                    <span class="detail-label">Garage:</span>
+                    <span class="detail-value">1</span>
+                  </div>
+                  <div class="property-detail-item">
+                    <span class="detail-label">Year Built:</span>
+                    <span class="detail-value">2018</span>
+                  </div>
+                  <div class="property-detail-item">
+                    <span class="detail-label">Property Condition:</span>
+                    <span class="detail-value">Excellent</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Virtual Tour -->
+              <div class="property-section">
+                <h2 class="property-section-title">Virtual Tour</h2>
+                <div class="virtual-tour">
+                  <iframe
+                    src="https://www.youtube.com/embed/KkuAo7ia4Q0?si=autHvmlcvh5XJk66"
+                    title="Virtual Tour"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+
+              <!-- Property Map -->
+              <div class="property-section">
+                <h2 class="property-section-title">Location</h2>
+                <div class="property-map">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.7714081790653!2d104.91235867586036!3d11.556531244551952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310951add5e2cd81%3A0x171e0b69c7c6f7ba!2sBKK1%2C%20Phnom%20Penh!5e0!3m2!1sen!2skh!4v1683893273293!5m2!1sen!2skh"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+
+            <!-- Property Sidebar -->
+            <div class="property-sidebar">
+              <!-- Agent Info -->
+              <div class="sidebar-section">
+                <h3 class="sidebar-title">Property Agent</h3>
+                <div class="agent-info">
+                  <img
+                    src="/images/profile.png"
+                    alt="Agent"
+                    class="agent-img"
+                  />
+                  <h4 class="agent-name">Sophia Chen</h4>
+                  <p class="agent-title">Senior Real Estate Agent</p>
+                  <div class="agent-contact">
+                    <div class="agent-contact-item">
+                      <i class="fas fa-phone"></i>
+                      <span>+855 12 345 678</span>
+                    </div>
+                    <div class="agent-contact-item">
+                      <i class="fas fa-envelope"></i>
+                      <span>sophia@realestate.com.kh</span>
+                    </div>
+                  </div>
+                  <a
+                    href="#"
+                    class="btn btn-secondary"
+                    style="margin-top: 15px; width: 100%"
+                    >View Agent Profile</a
+                  >
+                </div>
+              </div>
+
+              <!-- Contact Form -->
+              <div class="sidebar-section">
+                <h3 class="sidebar-title">Contact Us</h3>
+                <p class="sidebar-description">
+                  Reach out to us directly via your preferred platform:
+                </p>
+                <div class="social-links">
+                  <a
+                    href="https://facebook.com/yourpage"
+                    target="_blank"
+                    class="social-link facebook"
+                  >
+                    <i class="fab fa-facebook"></i> Facebook
+                  </a>
+                  <a
+                    href="https://weixin.qq.com/"
+                    target="_blank"
+                    class="social-link wechat"
+                  >
+                    <i class="fab fa-weixin"></i> WeChat
+                  </a>
+                  <a
+                    href="https://t.me/yourusername"
+                    target="_blank"
+                    class="social-link telegram"
+                  >
+                    <i class="fab fa-telegram"></i> Telegram
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Similar Properties -->
+    <section class="similar-properties">
+      <div class="container">
+        <h2 class="section-title">Similar <span>Properties</span></h2>
+        <div class="property-grid">
+          <!-- Property 1 -->
+          <div class="property-card">
+            <div class="property-img">
+              <img
+                src="/images/apartment.jpg"
+                alt="Luxury Apartment with Balcony"
+              />
+              <div class="property-card-tag">For Sale</div>
+              <div class="property-card-price">$135,000</div>
+            </div>
+            <div class="property-card-content">
+              <h3 class="property-card-title">Luxury Apartment with Balcony</h3>
+              <p class="property-card-location">
+                <i class="fas fa-map-marker-alt"></i> Tonle Bassac, Phnom Penh
+              </p>
+              <div class="property-card-features">
+                <span class="property-card-feature"
+                  ><i class="fas fa-bed"></i> 2 Beds</span
+                >
+                <span class="property-card-feature"
+                  ><i class="fas fa-bath"></i> 2 Baths</span
+                >
+                <span class="property-card-feature"
+                  ><i class="fas fa-vector-square"></i> 110 m²</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Property 2 -->
+          <div class="property-card">
+            <div class="property-img">
+              <img
+                src="/images/modernApartment.webp"
+                alt="Modern Studio in City Center"
+              />
+              <div class="property-card-tag">For Rent</div>
+              <div class="property-card-price">$900/month</div>
+            </div>
+            <div class="property-card-content">
+              <h3 class="property-card-title">Modern Studio in City Center</h3>
+              <p class="property-card-location">
+                <i class="fas fa-map-marker-alt"></i> Daun Penh, Phnom Penh
+              </p>
+              <div class="property-card-features">
+                <span class="property-card-feature"
+                  ><i class="fas fa-bed"></i> 1 Bed</span
+                >
+                <span class="property-card-feature"
+                  ><i class="fas fa-bath"></i> 1 Bath</span
+                >
+                <span class="property-card-feature"
+                  ><i class="fas fa-vector-square"></i> 65 m²</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Property 3 -->
+          <div class="property-card">
+            <div class="property-img">
+              <img
+                src="/images/LuxuryCondo.jpg"
+                alt="Spacious Apartment with Garden View"
+              />
+              <div class="property-card-tag">For Sale</div>
+              <div class="property-card-price">$145,000</div>
+            </div>
+            <div class="property-card-content">
+              <h3 class="property-card-title">
+                Spacious Apartment with Garden View
+              </h3>
+              <p class="property-card-location">
+                <i class="fas fa-map-marker-alt"></i> Toul Kork, Phnom Penh
+              </p>
+              <div class="property-card-features">
+                <span class="property-card-feature"
+                  ><i class="fas fa-bed"></i> 3 Beds</span
+                >
+                <span class="property-card-feature"
+                  ><i class="fas fa-bath"></i> 2 Baths</span
+                >
+                <span class="property-card-feature"
+                  ><i class="fas fa-vector-square"></i> 140 m²</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Telegram Sticky Icon -->
+    <div class="telegram-sticky">
+      <div class="telegram-btn" id="telegram-btn">
+        <i class="fab fa-telegram-plane"></i>
+      </div>
+      <div class="telegram-tooltip">Chat with us on Telegram</div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Gallery Popup -->
+    <div class="gallery-popup" id="gallery-popup">
+      <div class="popup-header">
+        <div class="popup-title">Modern Apartment with City View - Gallery</div>
+        <div class="popup-close" onclick="closeGalleryPopup()">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+      <div class="popup-content">
+        <div class="popup-main-image" id="popup-main-container">
+          <div class="image-loader" id="image-loader"></div>
+          <img
+            src="/placeholder.svg?height=800&width=1200"
+            alt="Property Image"
+            id="popup-main-image"
+            onclick="toggleImageZoom()"
+          />
+        </div>
+        <div class="popup-nav popup-prev" onclick="popupPrevImage()">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="popup-nav popup-next" onclick="popupNextImage()">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="popup-counter">
+          <span id="popup-current-image">1</span> /
+          <span id="popup-total-images">5</span>
+        </div>
+      </div>
+      <div class="popup-thumbnails" id="popup-thumbnails">
+        <!-- Thumbnails will be added dynamically -->
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuClose = document.getElementById("mobile-menu-close");
+      const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+
+      mobileMenuBtn.addEventListener("click", function () {
+        mobileMenu.classList.add("active");
+        mobileMenuOverlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+      });
+
+      function closeMenu() {
+        mobileMenu.classList.remove("active");
+        mobileMenuOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      mobileMenuClose.addEventListener("click", closeMenu);
+      mobileMenuOverlay.addEventListener("click", closeMenu);
+
+      // Sticky Header
+      const header = document.getElementById("header");
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Back to Top Button
+      const backToTopBtn = document.getElementById("back-to-top");
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.add("show");
+        } else {
+          backToTopBtn.classList.remove("show");
+        }
+      });
+
+      backToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Telegram Button Click
+      const telegramBtn = document.getElementById("telegram-btn");
+      telegramBtn.addEventListener("click", function () {
+        window.open("https://t.me/realestatecambodia", "_blank");
+      });
+
+      // Image Gallery
+      const images = [
+        "../images/apartment.jpg",
+        "../images/apartment.jpg",
+        "../images/apartment.jpg",
+        "../images/apartment.jpg",
+        "../images/apartment.jpg",
+      ];
+      let currentImageIndex = 0;
+      const mainImage = document.getElementById("main-image");
+      const currentImageEl = document.getElementById("current-image");
+      const totalImagesEl = document.getElementById("total-images");
+      const thumbs = document.querySelectorAll(".gallery-thumb");
+
+      totalImagesEl.textContent = images.length;
+
+      function changeImage(src, index) {
+        mainImage.src = src;
+        currentImageIndex = index;
+        currentImageEl.textContent = index + 1;
+
+        // Update active thumbnail
+        thumbs.forEach((thumb, i) => {
+          if (i === index) {
+            thumb.classList.add("active");
+          } else {
+            thumb.classList.remove("active");
+          }
+        });
+      }
+
+      function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        changeImage(images[currentImageIndex], currentImageIndex);
+      }
+
+      function prevImage() {
+        currentImageIndex =
+          (currentImageIndex - 1 + images.length) % images.length;
+        changeImage(images[currentImageIndex], currentImageIndex);
+      }
+
+      // Mortgage Calculator
+      function calculateMortgage() {
+        const price = parseFloat(
+          document.getElementById("property-price").value
+        );
+        const downPaymentPercent = parseFloat(
+          document.getElementById("down-payment").value
+        );
+        const loanTerm = parseFloat(document.getElementById("loan-term").value);
+        const interestRate = parseFloat(
+          document.getElementById("interest-rate").value
+        );
+
+        const downPayment = price * (downPaymentPercent / 100);
+        const loanAmount = price - downPayment;
+        const monthlyInterest = interestRate / 100 / 12;
+        const numberOfPayments = loanTerm * 12;
+
+        const monthlyPayment =
+          (loanAmount *
+            monthlyInterest *
+            Math.pow(1 + monthlyInterest, numberOfPayments)) /
+          (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
+
+        document.getElementById("monthly-payment").textContent =
+          "$" + monthlyPayment.toFixed(2);
+      }
+
+      // Animation on Scroll
+      function animateOnScroll() {
+        const elements = document.querySelectorAll(".property-card");
+
+        elements.forEach((element) => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+
+          if (elementPosition < windowHeight - 100) {
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0)";
+          }
+        });
+      }
+
+      // Initialize animations
+      window.addEventListener("load", function () {
+        document.querySelectorAll(".property-card").forEach((element) => {
+          element.style.opacity = "0";
+          element.style.transform = "translateY(20px)";
+          element.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        });
+
+        animateOnScroll();
+      });
+
+      window.addEventListener("scroll", animateOnScroll);
+
+      // Gallery Popup Functions
+      function openGalleryPopup() {
+        const galleryPopup = document.getElementById("gallery-popup");
+        const popupMainImage = document.getElementById("popup-main-image");
+        const popupCurrentImage = document.getElementById(
+          "popup-current-image"
+        );
+        const popupTotalImages = document.getElementById("popup-total-images");
+        const popupThumbnails = document.getElementById("popup-thumbnails");
+
+        // Set the main image
+        popupMainImage.src = images[currentImageIndex];
+
+        // Update counter
+        popupCurrentImage.textContent = currentImageIndex + 1;
+        popupTotalImages.textContent = images.length;
+
+        // Generate thumbnails
+        popupThumbnails.innerHTML = "";
+        images.forEach((image, index) => {
+          const thumb = document.createElement("img");
+          // Handle both local and remote images for thumbnails
+          if (image.startsWith("http")) {
+            thumb.src = image;
+          } else {
+            thumb.src = image.replace(
+              "height=600&width=1200",
+              "height=120&width=200"
+            );
+          }
+          thumb.alt = `Thumbnail ${index + 1}`;
+          thumb.className = "popup-thumb";
+          if (index === currentImageIndex) {
+            thumb.classList.add("active");
+          }
+          thumb.onclick = () => popupChangeImage(image, index);
+          popupThumbnails.appendChild(thumb);
+        });
+
+        // Show popup
+        galleryPopup.classList.add("active");
+        document.body.style.overflow = "hidden";
+
+        // Add keyboard navigation
+        document.addEventListener("keydown", handlePopupKeydown);
+
+        // Check if mobile device and adjust popup behavior
+        if (window.innerWidth <= 768) {
+          // For mobile, scroll to the top of the popup for better viewing
+          setTimeout(() => {
+            galleryPopup.scrollTop = 0;
+          }, 100);
+        }
+      }
+
+      function closeGalleryPopup() {
+        const galleryPopup = document.getElementById("gallery-popup");
+        const popupMainContainer = document.getElementById(
+          "popup-main-container"
+        );
+
+        galleryPopup.classList.remove("active");
+        popupMainContainer.classList.remove("zoomed");
+        document.body.style.overflow = "";
+
+        // Remove keyboard navigation
+        document.removeEventListener("keydown", handlePopupKeydown);
+      }
+
+      function popupChangeImage(src, index) {
+        const popupMainImage = document.getElementById("popup-main-image");
+        const popupCurrentImage = document.getElementById(
+          "popup-current-image"
+        );
+        const popupThumbs = document.querySelectorAll(".popup-thumb");
+        const imageLoader = document.getElementById("image-loader");
+        const popupMainContainer = document.getElementById(
+          "popup-main-container"
+        );
+
+        // Reset zoom state
+        popupMainContainer.classList.remove("zoomed");
+
+        // Show loading indicator
+        imageLoader.style.display = "block";
+
+        // Create a new image object to preload
+        const img = new Image();
+        img.onload = function () {
+          popupMainImage.src = src;
+          imageLoader.style.display = "none";
+        };
+
+        img.onerror = function () {
+          popupMainImage.src =
+            "/placeholder.svg?height=800&width=1200&text=Image+Error";
+          imageLoader.style.display = "none";
+        };
+
+        img.src = src;
+
+        popupCurrentImage.textContent = index + 1;
+
+        // Update active thumbnail
+        popupThumbs.forEach((thumb, i) => {
+          if (i === index) {
+            thumb.classList.add("active");
+          } else {
+            thumb.classList.remove("active");
+          }
+        });
+
+        currentImageIndex = index;
+      }
+
+      function popupNextImage() {
+        const nextIndex = (currentImageIndex + 1) % images.length;
+        popupChangeImage(images[nextIndex], nextIndex);
+      }
+
+      function popupPrevImage() {
+        const prevIndex =
+          (currentImageIndex - 1 + images.length) % images.length;
+        popupChangeImage(images[prevIndex], prevIndex);
+      }
+
+      function handlePopupKeydown(e) {
+        if (e.key === "Escape") {
+          closeGalleryPopup();
+        } else if (e.key === "ArrowRight") {
+          popupNextImage();
+        } else if (e.key === "ArrowLeft") {
+          popupPrevImage();
+        }
+      }
+
+      // Toggle zoom on image click
+      function toggleImageZoom() {
+        const popupMainContainer = document.getElementById(
+          "popup-main-container"
+        );
+        popupMainContainer.classList.toggle("zoomed");
+      }
+
+      // Add external image from URL
+      function addExternalImage() {
+        const urlInput = document.getElementById("external-image-url");
+        const url = urlInput.value.trim();
+
+        if (!url) {
+          alert("Please enter a valid image URL");
+          return;
+        }
+
+        // Show loading indicator
+        const imageLoader = document.getElementById("image-loader");
+        imageLoader.style.display = "block";
+
+        // Validate image URL
+        const img = new Image();
+        img.onload = function () {
+          // Add to images array
+          images.push(url);
+
+          // Update gallery
+          const popupTotalImages =
+            document.getElementById("popup-total-images");
+          popupTotalImages.textContent = images.length;
+
+          // Add thumbnail
+          const popupThumbnails = document.getElementById("popup-thumbnails");
+          const thumb = document.createElement("img");
+          thumb.src = url;
+          thumb.alt = `Thumbnail ${images.length}`;
+          thumb.className = "popup-thumb";
+          thumb.onclick = () => popupChangeImage(url, images.length - 1);
+          popupThumbnails.appendChild(thumb);
+
+          // Switch to the new image
+          popupChangeImage(url, images.length - 1);
+
+          // Clear input
+          urlInput.value = "";
+
+          // Also add to main gallery if needed
+          updateMainGallery();
+        };
+
+        img.onerror = function () {
+          alert("Failed to load image. Please check the URL and try again.");
+          imageLoader.style.display = "none";
+        };
+
+        img.src = url;
+      }
+
+      // Update main gallery with new images
+      function updateMainGallery() {
+        // This function would update the main gallery thumbnails
+        // For simplicity, we're just updating the counter for now
+        const totalImagesEl = document.getElementById("total-images");
+        totalImagesEl.textContent = images.length;
+      }
+
+      // Touch swipe support for mobile
+      document.addEventListener("DOMContentLoaded", function () {
+        const popupContent = document.querySelector(".popup-content");
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        popupContent.addEventListener(
+          "touchstart",
+          function (e) {
+            touchStartX = e.changedTouches[0].screenX;
+          },
+          false
+        );
+
+        popupContent.addEventListener(
+          "touchend",
+          function (e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+          },
+          false
+        );
+
+        function handleSwipe() {
+          if (touchEndX < touchStartX - 50) {
+            // Swipe left, go to next image
+            popupNextImage();
+          }
+          if (touchEndX > touchStartX + 50) {
+            // Swipe right, go to previous image
+            popupPrevImage();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
